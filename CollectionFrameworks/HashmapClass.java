@@ -19,7 +19,26 @@ public class HashmapClass {
         System.out.println("Inventory: " + inventory);
         System.out.println("Apple count: " + inventory.get("Apples"));
 
+        //traversal using forloop
+        for(Map.Entry<String,Integer> entry: inventory.entrySet()){
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
 
+        //traversal using Lambda func
+        inventory.forEach((key,value)->{
+            System.out.println("Key: " + key + ", Value: " + value);
+        });
+
+
+        //get keys - Iterating over Keys Only:
+        for (String key : inventory.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        // Iterating over Values Only:
+        for(Integer val : inventory.values()){
+            System.out.println("value: "+val);
+        }
 
         //2. ConcurrentHashMap -> ✅ Thread-safe
         Map<String, Integer> scores = new ConcurrentHashMap<>();
