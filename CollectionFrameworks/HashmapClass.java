@@ -1,8 +1,12 @@
 package CollectionFrameworks;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+;
 
 public class HashmapClass {
     public static void main(String[] args) {
@@ -51,8 +55,13 @@ public class HashmapClass {
 
         // Example of a thread-safe atomic update
         scores.computeIfPresent("Player1", (key, val) -> val + 10);
-
         System.out.println("Final Scores: " + scores);
+
+
+        //all values 
+        List<Integer> allScores = new ArrayList<>(scores.values()); //                       method -1 
+        List<Integer> allScores1 = scores.values().stream().collect(Collectors.toList()); // method 2 - java 8+
+        List<Integer> allScores2 = scores.values().stream().toList(); //                     method - 3 java 16+
     }
 
 }
